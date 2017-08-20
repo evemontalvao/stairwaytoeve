@@ -1,0 +1,29 @@
+footer {
+	clear: both;
+	float: left;
+	width: 100%;
+	background-color: rgba(255,255,255,0.1);
+	padding: 20px;
+}
+
+.snapwidget-widget {
+	margin-top: 64px;
+}
+
+.social {
+	text-align: center;
+}
+
+.social li{
+	margin: 0 auto;
+	display: inline-block;
+}
+.social li a {
+	color: #fff;
+	margin: 0 8px;
+	transition: all 0.3s linear;
+}
+
+.social li a:hover {
+	color: #EB7878;
+}

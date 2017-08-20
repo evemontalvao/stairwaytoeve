@@ -1,0 +1,43 @@
+@import '../../../../node_modules/jeet/scss/index';
+@import url('https://fonts.googleapis.com/css?family=Alex+Brush|Pathway+Gothic+One');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/FontAwesome.otf');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.eot');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.svg');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.ttf');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2');
+
+@import 'variables';
+
+html, body {
+	background-color: #2D303F;
+	height: 100%;
+	color: #79798C;
+	font-family: "Trebuchet MS", sans-serif;
+	font-size: 16px;
+}
+
+
+main {
+	width: 1120px;
+	margin: 0 auto;
+}
+
+@import 'reset';
+@import 'header';
+@import 'posts';
+@import 'about';
+@import 'single';
+@import 'footer';
+
+
+
+
+
+
+
+
+
+
+
+
