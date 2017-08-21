@@ -3,16 +3,31 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "dependencies": {
+    "express": "^4.15.4",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.7.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-watch": "^4.3.11",
+    "handlebars": "^4.0.10",
+    "jeet": "^7.1.0",
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "post": "node scripts/build.js"
   },
-  "author": "Eve",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/evemontalvao/stairwaytoeve.git"
+  },
+  "author": "Eve Montalvão",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.15.4",
-    "handlebars": "^4.0.10",
-    "pug": "^2.0.0-rc.3"
-  }
+  "bugs": {
+    "url": "https://github.com/evemontalvao/stairwaytoeve/issues"
+  },
+  "homepage": "https://github.com/evemontalvao/stairwaytoeve#readme"
 }

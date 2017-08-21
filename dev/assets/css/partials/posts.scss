@@ -1,19 +1,19 @@
 .posts {
 	margin: 60px auto;
 	clear: both;
+	width: 100%;
+	float: left;
+}
+
+.post-example {
+	display: none;
 }
 
 .wrapper {
-	@include column(4/12);
+	width: 33.3%;
+	float: left;
 	padding: 9px;
 	overflow: hidden;
-}
-
-.wrapper:nth-of-type(3n+0){
-	padding-right: 0;
-}
-.wrapper:nth-of-type(3n+1){
-	padding-left: 0;
 }
 
 .post {

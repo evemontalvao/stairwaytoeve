@@ -1,0 +1,10 @@
+{
+	"template": "single",
+	"filename": "second",
+	"color": "blue",
+	"category": ["test","music","diy"],
+	"tags": ["alalala","fodase"],
+	"background": "http://stairwaytoeve.com.br/img/01.jpg",
+	"title": "Second",
+	"post": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias facere at numquam maxime accusamus error optio hic magnam qui quas illum nam delectus adipisci deleniti nulla iste aperiam, similique cum. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste ipsa, perspiciatis vero. Veritatis similique quibusdam obcaecati nulla dolorum corporis at odio dicta, accusamus neque magni, atque architecto minus vel, eaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde quos, nisi voluptatibus quo? Animi aut, excepturi repellat illo recusandae, reprehenderit suscipit debitis. Necessitatibus laudantium quos, sunt, corporis reiciendis aut repudiandae. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit mollitia repellendus, non tempora necessitatibus accusamus enim nobis eligendi officia. Modi vero deleniti tenetur, praesentium voluptatem quam. Dolorem, nisi aut optio?"
+}

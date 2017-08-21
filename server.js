@@ -4,13 +4,14 @@ express = require('express'),
 path = require('path');
 fs = require('fs'),
 app = express(),
-articles = process.cwd() + '/article/';
+servePosts = require('./scripts/servePosts'),
 
 app.use(express.static(__dirname + '/'));
 
 app.get('/', function(req, res){
-	res.sendFile(path.join(__dirname + '/index.html'));
+	res.sendFile(path.join(__dirname + '/public/index.html'));
 });
+
 
 http.createServer(app).listen(2107);
 
