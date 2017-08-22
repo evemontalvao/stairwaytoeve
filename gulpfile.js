@@ -10,8 +10,12 @@ var src = {
 	css: "dev/assets/css/main.scss",
 	js: "dev/assets/js/**/*.js",
 	json: "dev/assets/js/*.json",
+<<<<<<< HEAD
 	html: "dev/*.html",
 	img: "dev/assets/img/**/*"
+=======
+	html: "dev/*.html"
+>>>>>>> b2e46d848ce5837ea58c7be3dd547dac8c55cc2b
 }
 
 var dist = { 
@@ -26,8 +30,12 @@ gulp.task('json', function(){
 	.pipe(jsonlint())
 	.pipe(jsonlint.reporter())
 	.pipe(gulp.dest(dist.js));
+<<<<<<< HEAD
 });
 
+=======
+})
+>>>>>>> b2e46d848ce5837ea58c7be3dd547dac8c55cc2b
 gulp.task('html', function(){
 	gulp.src(src.html)
 	.pipe(gulp.dest(dist.html));
@@ -56,7 +64,13 @@ gulp.task('watch', function() {
     gulp.watch(src.watch, ['sass']);
     gulp.watch(src.html, ['html']);
     gulp.watch(src.json, ['json']);
+<<<<<<< HEAD
     gulp.watch(src.img, ['img']);
 });
 
 gulp.task('default', ['sass','js','watch', 'html', 'json','img']);
+=======
+});
+
+gulp.task('default', ['sass','js','watch', 'html', 'json']);
+>>>>>>> b2e46d848ce5837ea58c7be3dd547dac8c55cc2b

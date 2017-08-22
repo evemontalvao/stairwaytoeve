@@ -12,6 +12,7 @@
 
 	Stairwaytoeve.prototype.loadPosts = function(model){
 		$.getJSON('public/assets/js/postsList.json', (function(data){
+			console.log(data.list);
 			this.formatPosts(data.list);
 			this.checkEmptySpaces(data.list);
 		}).bind(this));
@@ -42,6 +43,10 @@
 		if(data.length % 4 == 0){
 			while(times < 2) {
 				times = times + 1;
+<<<<<<< HEAD
+=======
+				console.log(times);
+>>>>>>> b2e46d848ce5837ea58c7be3dd547dac8c55cc2b
 				this.fillEmptySpaces();
 			}
 		} else if(data.length % 5 == 0){
