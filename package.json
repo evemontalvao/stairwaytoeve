@@ -7,13 +7,15 @@
     "express": "^4.15.4",
     "gulp": "^3.9.1",
     "gulp-clean-css": "^3.7.0",
+    "gulp-jsonlint": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "handlebars": "^4.0.10",
     "jeet": "^7.1.0",
     "lodash": "^4.17.4",
-    "node-sass": "^4.5.3"
+    "node-sass": "^4.5.3",
+    "shipit-deploy": "^2.5.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

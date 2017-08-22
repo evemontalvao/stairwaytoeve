@@ -12,6 +12,7 @@
 
 
 	var dateName = function(stats){
+		console.log(stats.birthtime);	
 		var year, month, day, hour, min, date, sec;
 		date = stats.birthtime;
 		year = date.getFullYear().toString();
