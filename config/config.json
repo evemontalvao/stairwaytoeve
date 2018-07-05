@@ -1,0 +1,14 @@
+{
+	"config": {
+		"url": "http://stairwaytoeve.com.br/",
+		"development": "file:///Users/eve/projects/stairwaytoeve/",
+		"dir": {
+			"articles": "src/_articles",
+			"templates": "src/_templates",
+			"helpers": "lib/helpers",
+			"images": "src/_assets/images",
+			"scripts": "",
+			"styles": "public/assets/"
+		}
+	}	
+}

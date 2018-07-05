@@ -1,65 +1,84 @@
-var gulp = require('gulp'); 
-var watch = require('gulp-watch');
-var sass = require('gulp-sass');
-var uglify = require('gulp-uglify');
-var minify = require('gulp-clean-css');
-var jsonlint = require('gulp-jsonlint');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
+const sourcemaps = require('gulp-sourcemaps');
+const pxtorem = require('postcss-pxtorem');
+const postcss = require('gulp-postcss');
+const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
+const concat = require('gulp-concat');
+const htmlmin = require('gulp-htmlmin');
+const include = require('gulp-file-include');
+const watch = require('gulp-watch');
+const cleanCSS = require('gulp-clean-css');
+const browserSync = require('browser-sync').create();
 
-var src = {
-	watch: "dev/assets/css/**/*.scss",
-	css: "dev/assets/css/main.scss",
-	js: "dev/assets/js/**/*.js",
-	json: "dev/assets/js/*.json",
-	html: "dev/*.html",
-	img: "dev/assets/img/**/*"
+const srcDir = `${process.cwd()}/src`;
+const distDir = `${process.cwd()}/public`;
+
+const cssNanoConfig = {
+	zindex: false,
+	minifyFontValues: false,
+	discardUnused: {fontFace: false},
+	autoprefixer: ['last 2 versions', 'IE >= 9']
 }
 
-var dist = { 
-	css: "public/assets/css/",
-	js: "public/assets/js/",
-	html: "public/",
-	img: "public/assets/img"
+const sources = {
+	watchCss: `${srcDir}/**/*.scss`,
+	watchHtml: `${srcDir}/**/*.html`,
+	styles: `${srcDir}/_assets/styles/**/*.scss`,
+	js: `${srcDir}/_assets/js/**/*.js`,
+	html: `${srcDir}/view/*.html`
 }
 
-gulp.task('json', function(){
-	gulp.src(src.json)
-	.pipe(jsonlint())
-	.pipe(jsonlint.reporter())
-	.pipe(gulp.dest(dist.js));
+console.log(sources.styles)
+
+const dist = {
+	styles: `${distDir}/assets`,
+	js: `${distDir}/styles`,
+	html: `${distDir}/pages`
+}
+
+gulp.task('sass', () => {
+	return gulp.src(sources.styles)
+	.pipe(sourcemaps.init())
+	.pipe(sass().on('error', sass.logError))
+	.pipe(concat('empwr.min.css'))	
+	.pipe(postcss([
+		pxtorem(),
+		autoprefixer(cssNanoConfig),
+		cssnano()
+		]))
+	.pipe(sourcemaps.write('./maps'))
+	.pipe(gulp.dest(dist.styles));
 });
 
-
-gulp.task('html', function(){
-	gulp.src(src.html)
-	.pipe(gulp.dest(dist.html));
+gulp.task('html', () => {
+	return gulp.src(sources.html)
+	.pipe(include({
+		prefix: '@',
+		basepath: `${process.cwd()}/src/view/`
+	}))
+	.pipe(gulp.dest(dist.html))
 });
 
-gulp.task('img', function(){
-	gulp.src(src.img)
-	.pipe(gulp.dest(dist.img));
+gulp.task('copy', function () {
+	gulp.src('src/fonts/*', { base: 'src' }).pipe(gulp.dest('./public/'));
+	gulp.src('src/images/*', { base: 'src' }).pipe(gulp.dest('./public/'));
 });
 
-gulp.task('js', function() {
-	gulp.src(src.js)
-	.pipe(uglify())
-	.pipe(gulp.dest(dist.js));
+gulp.task('serve', ['html', 'sass'], () => {
+	browserSync.init({
+		open: false,
+		port: 3000,
+		notify: true,
+		proxy: 'http://localhost:2107'
+	});
+	gulp.watch('./src/fonts/*', ['copy']).on('change', browserSync.reload);
+	gulp.watch('./src/images/*', ['copy']).on('change', browserSync.reload);
+	gulp.watch('./src/view/**/*.html', ['html']).on('change', browserSync.reload);
+	gulp.watch('./src/styles/**/*.scss', ['sass']).on('change', browserSync.reload);
 });
 
-gulp.task('sass', function() {
-	gulp.src(src.css)
-	.pipe(sass())
-	.pipe(minify({compatibility: 'ie8'}))
-	.pipe(gulp.dest(dist.css));
-})
-
-gulp.task('watch', function() {
-    gulp.watch(src.js, ['js']);
-    gulp.watch(src.watch, ['sass']);
-    gulp.watch(src.html, ['html']);
-    gulp.watch(src.json, ['json']);
-    gulp.watch(src.img, ['img']);
-});
-
-gulp.task('default', ['sass','js','watch', 'html', 'json','img']);
-
-
+gulp.task('default', ['sass', 'html', 'copy'])

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block posts %}
+<section class="posts" data-posts>
+	<section class="post-example" data-post-example>
+		<div class="wrapper" data-posts-wrapper data-post-model>
+			<a href="" data-post-href>
+				<div class="post" style="background-image:url({{ thumbnail }})" data-post-background>
+					<div class="post-title" data-post-title>{{ title }}</div>
+				</div>
+			</a>	
+		</div>
+	</section>
+</section>
+{% endblock %}
