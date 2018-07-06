@@ -32,8 +32,6 @@ const sources = {
 	html: `${srcDir}/view/*.html`
 }
 
-console.log(sources.styles)
-
 const dist = {
 	styles: `${distDir}/assets`,
 	js: `${distDir}/styles`,
@@ -44,7 +42,7 @@ gulp.task('sass', () => {
 	return gulp.src(sources.styles)
 	.pipe(sourcemaps.init())
 	.pipe(sass().on('error', sass.logError))
-	.pipe(concat('empwr.min.css'))	
+	.pipe(concat('stairwaytoeve.min.css'))	
 	.pipe(postcss([
 		pxtorem(),
 		autoprefixer(cssNanoConfig),
